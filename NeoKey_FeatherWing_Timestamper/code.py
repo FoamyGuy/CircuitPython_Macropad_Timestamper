@@ -59,10 +59,15 @@ while True:
                 # Determine the elapsed time by subtracting START_TIME from CURRENT_TIME.
                 elapsed = CURRENT_TIME - START_TIME
                 # Turn the elapsed time into something human-readable.
-                elapsed_min = elapsed // 60
+                elapsed_hour = elapsed // 3600
+                elapsed_min = (elapsed - (elapsed_hour * 3600)) // 60
                 elapsed_sec = elapsed % 60
-                # Generate a string of the human-readable elapsed time in minutes.
-                time_string = f"{int(elapsed_min):02}:{math.floor(elapsed_sec):02} "
+                if elapsed_hour == 0:  # no full hours yet
+                    # Generate a string of the human-readable elapsed time in minutes and seconds.
+                    time_string = f"{int(elapsed_min):02}:{math.floor(elapsed_sec):02} "
+                else:  # at least 1 full hour
+                    # Generate a string of the human-readable elapsed time in hours minutes and seconds.
+                    time_string = f"{int(elapsed_hour):02}:{int(elapsed_min):02}:{math.floor(elapsed_sec):02} "
                 # If the timestamp is not the same as the time string, set it to be current.
                 if TIMESTAMP != time_string:
                     TIMESTAMP = time_string
