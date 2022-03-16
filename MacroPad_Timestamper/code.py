@@ -1,14 +1,13 @@
 import time
 
-from adafruit_display_text.bitmap_label import Label
+import math
 import board
 import usb_hid
-import math
 import terminalio
 from displayio import Group
+from adafruit_display_text.bitmap_label import Label
 from adafruit_macropad import MacroPad
 from adafruit_hid.keyboard import Keyboard
-from adafruit_hid.keycode import Keycode
 from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 
 kbd = Keyboard(usb_hid.devices)
