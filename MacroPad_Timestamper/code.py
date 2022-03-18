@@ -72,7 +72,7 @@ while True:
 
     # If START_TIME is anything but None, meaning the timer is running...
     if START_TIME:
-        # update the
+        # update the showing time
         elapsed = CUR_TIME - START_TIME
         # breakout hours, minutes, and seconds
         elapsed_hour = elapsed // 3600
